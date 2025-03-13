@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {
   Code2,
-  Sparkles,
   Laptop,
-  Users,
   ChevronDown,
   ExternalLink,
   Github,
@@ -63,20 +61,35 @@ function App() {
       title: "Boutique à Café",
       description: "Un prototype de site web pour une boutique de café fictive",
       image: "/cafe_presentation.png",
-      tech: ["React", "Tailwind", "Framer Motion"],
-      link: "#",
+      tech: ["React", "Tailwind", "JavaScript"],
+      link: "https://coffeeshop-website-nine.vercel.app",
     },
     {
       title: "Club IA Université Laval",
-      description: "Site pour un club étudiant en intelligence artificielle",
+      description:
+        "Site pour un club étudiant en intelligence artificielle (toujours en développement, lien à venir)",
       image: "/cia_presentation.png",
-      tech: ["React", "TypeScript", "Supabase"],
+      tech: ["React", "TypeScript", "Tailwind CSS"],
       link: "#",
     },
     {
       title: "Site personnel",
       description: "Site portfolio pour afficher mes projets et compétences",
       image: "portfolio_presentation.png",
+      tech: ["React", "Vue", "TailwindCSS"],
+      link: "#",
+    },
+    {
+      title: "Magasin de Kebab",
+      description: "Un prototype de site web pour un magasin de kebab fictif",
+      image: "kebab_presentation.png",
+      tech: ["React", "TypeScript", "TailwindCSS"],
+      link: "https://kebab-website.vercel.app",
+    },
+    {
+      title: "Et bien d'autres à venir!",
+      description: "Contactez-moi pour faire affaire ensemble",
+      image: "",
       tech: ["React", "D3.js", "TailwindCSS"],
       link: "#",
     },
@@ -97,7 +110,11 @@ function App() {
       >
         <div className="container mx-auto px-6 flex items-center justify-between">
           <div className="flex items-center space-x-2 group">
-            <Code2 className="h-8 w-8 text-indigo-600 dark:text-indigo-400 animate-rotate" />
+            <img
+              src="evoweb_logo.png"
+              alt="EvoWeb Logo"
+              className="h-24 w-24 text-indigo-600 dark:text-indigo-400 animate-rotate"
+            />
             <span className="text-xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 text-transparent bg-clip-text animate-gradient">
               EvoWeb
             </span>
@@ -159,11 +176,11 @@ function App() {
         <div className="container mx-auto px-6 py-32 relative">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 text-transparent bg-clip-text animate-gradient text-glow">
-              Je Donne Vie à Vos Projets Web
+              Une idée en tête ? Je m'en occupe !
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
-              Je transforme vos idées en sites web modernes et performants qui
-              correspondent à vos besoins
+              Je transforme vos idées en sites web modernes et 100%
+              personnalisés vous permettant de vous démarquer de la concurrence.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <button
@@ -219,9 +236,10 @@ function App() {
                   </h3>
                 </div>
                 <p className="text-gray-600 dark:text-gray-300">
-                  Je suis Dereck, étudiant en informatique et développeur web
-                  passionné. Je combine créativité et expertise technique pour
-                  créer des expériences web uniques.
+                  Bonjour! Je suis Dereck, étudiant en informatique à
+                  l'université Laval et développeur web passionné. Je combine
+                  créativité et expertise technique pour créer des expériences
+                  web qui satisfont vos besoins
                 </p>
                 <div className="flex items-center space-x-3">
                   <Coffee className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
@@ -232,8 +250,7 @@ function App() {
                 <div className="flex items-center space-x-3">
                   <Heart className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
                   <p className="text-gray-600 dark:text-gray-300">
-                    Spécialisé dans le développement React et les technologies
-                    modernes
+                    Spécialisé dans le développement React et Tailwind CSS
                   </p>
                 </div>
               </div>
@@ -247,7 +264,7 @@ function App() {
         <div className="absolute inset-0 chaos-grid dark:chaos-grid-dark opacity-20 -rotate-45" />
         <div className="container mx-auto px-6 relative">
           <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 text-transparent bg-clip-text text-glow">
-            Nos Services
+            Mes Services
           </h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
@@ -258,15 +275,16 @@ function App() {
                   "Sites web personnalisés avec les technologies modernes",
               },
               {
-                icon: <Palette className="h-8 w-8" />,
-                title: "Design UI/UX",
-                description: "Expériences utilisateur belles et intuitives",
+                icon: <Globe className="h-8 w-8" />,
+                title: "Maintien et entretien",
+                description:
+                  "Une fois votre site en ligne, je peux m'occuper de son maintien et de ses mises à jour",
               },
               {
-                icon: <Globe className="h-8 w-8" />,
-                title: "Consultation",
+                icon: <Palette className="h-8 w-8" />,
+                title: "Consulation UI/UX",
                 description:
-                  "Conseils d'experts pour votre stratégie numérique",
+                  "Besoin de conseils avant de lancer votre site ? Je vous aide à comprendre l'expérience utilisateur optimale pour vos besoins",
               },
             ].map((service, index) => (
               <div
@@ -418,7 +436,11 @@ function App() {
         <div className="container mx-auto px-6 relative">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-2 group">
-              <Code2 className="h-8 w-8 text-indigo-400 animate-rotate" />
+              <img
+                src="evoweb_logo.png"
+                alt="EvoWeb Logo"
+                className="h-8 w-8 text-indigo-600 dark:text-indigo-400 animate-rotate"
+              />
               <span className="text-xl font-bold">EvoWeb</span>
             </div>
             <div className="flex space-x-6">
