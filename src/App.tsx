@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
-  Code2,
   Laptop,
   ChevronDown,
   ExternalLink,
@@ -15,6 +14,7 @@ import {
   Heart,
 } from "lucide-react";
 import { useTheme } from "./ThemeContext";
+import ContactForm from "./ContactForm";
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -392,38 +392,7 @@ function App() {
                 </div>
               </div>
               <div className="w-full md:w-1/2">
-                <form className="space-y-6">
-                  <div className="group">
-                    <input
-                      type="text"
-                      placeholder="Votre Nom"
-                      className="w-full px-4 py-3 rounded-lg glass-card border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 dark:focus:ring-indigo-800 transition-all duration-300 hover-glow"
-                    />
-                  </div>
-                  <div className="group">
-                    <input
-                      type="email"
-                      placeholder="Votre Email"
-                      className="w-full px-4 py-3 rounded-lg glass-card border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 dark:focus:ring-indigo-800 transition-all duration-300 hover-glow"
-                    />
-                  </div>
-                  <div className="group">
-                    <textarea
-                      placeholder="Votre Message"
-                      rows={4}
-                      className="w-full px-4 py-3 rounded-lg glass-card border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 dark:focus:ring-indigo-800 transition-all duration-300 hover-glow"
-                    ></textarea>
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full group gradient-border dark:gradient-border-dark rounded-lg px-8 py-3 hover-glow"
-                  >
-                    <span className="flex items-center justify-center">
-                      Envoyer le Message
-                      <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </span>
-                  </button>
-                </form>
+                <ContactForm />
               </div>
             </div>
           </div>
@@ -459,7 +428,7 @@ function App() {
             </div>
           </div>
           <div className="mt-8 text-center text-gray-400">
-            © {new Date().getFullYear()} EvoWeb. Tous droits réservés.
+            © {new Date().getFullYear()} Dereck Bélanger - Tous droits réservés.
           </div>
         </div>
       </footer>
