@@ -12,6 +12,7 @@ import {
   GraduationCap,
   Coffee,
   Heart,
+  Linkedin,
 } from "lucide-react";
 import { useTheme } from "./ThemeContext";
 import ContactForm from "./ContactForm";
@@ -67,17 +68,17 @@ function App() {
     {
       title: "Club IA Université Laval",
       description:
-        "Site pour un club étudiant en intelligence artificielle (toujours en développement, lien à venir)",
+        "Site pour un club étudiant en intelligence artificielle (toujours en développement, lien à venir, mais le github est public!)",
       image: "/cia_presentation.png",
       tech: ["React", "TypeScript", "Tailwind CSS"],
-      link: "#",
+      link: "https://github.com/cia-ulaval/EEG_siteweb",
     },
     {
       title: "Site personnel",
       description: "Site portfolio pour afficher mes projets et compétences",
       image: "portfolio_presentation.png",
-      tech: ["React", "Vue", "TailwindCSS"],
-      link: "#",
+      tech: ["React", "Vite", "TailwindCSS"],
+      link: "https://www.dereckbelanger.me",
     },
     {
       title: "Magasin de Kebab",
@@ -88,9 +89,10 @@ function App() {
     },
     {
       title: "Et bien d'autres à venir!",
-      description: "Contactez-moi pour faire affaire ensemble",
-      image: "",
-      tech: ["React", "D3.js", "TailwindCSS"],
+      description:
+        "Vous pourriez être le prochain projet sur cette liste! Qu'est-ce que vous attendez?",
+      image: "autre.jpg",
+      tech: [],
       link: "#",
     },
   ];
@@ -272,7 +274,7 @@ function App() {
                 icon: <Laptop className="h-8 w-8" />,
                 title: "Développement Web",
                 description:
-                  "Sites web personnalisés avec les technologies modernes",
+                  "Je créer des sites web personnalisés avec des technologies modernes et performantes",
               },
               {
                 icon: <Globe className="h-8 w-8" />,
@@ -387,7 +389,10 @@ function App() {
                   </div>
                   <div className="flex items-center space-x-4 text-gray-600 dark:text-gray-300">
                     <Coffee className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
-                    <span>Toujours partant pour un café et une discussion</span>
+                    <span>
+                      Toujours partant pour discuter des projets qui vous
+                      emballent!
+                    </span>
                   </div>
                 </div>
               </div>
@@ -408,22 +413,22 @@ function App() {
               <img
                 src="evoweb_logo.png"
                 alt="EvoWeb Logo"
-                className="h-8 w-8 text-indigo-600 dark:text-indigo-400 animate-rotate"
+                className="h-24 w-24 text-indigo-600 dark:text-indigo-400 animate-rotate"
               />
               <span className="text-xl font-bold">EvoWeb</span>
             </div>
             <div className="flex space-x-6">
               <a
-                href="#"
+                href="https://github.com/DereckBelanger152"
                 className="hover:text-indigo-400 transition-colors transform hover:scale-110"
               >
                 <Github className="h-6 w-6" />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/in/dereck-bélanger-437259338/"
                 className="hover:text-indigo-400 transition-colors transform hover:scale-110"
               >
-                <ExternalLink className="h-6 w-6" />
+                <Linkedin className="h-6 w-6" />
               </a>
             </div>
           </div>
