@@ -59,33 +59,40 @@ function App() {
 
   const projects = [
     {
-      title: "Boutique à Café",
-      description: "Un prototype de site web pour une boutique de café fictive",
-      image: "/cafe_presentation.png",
-      tech: ["React", "Tailwind", "JavaScript"],
-      link: "https://coffeeshop-website-nine.vercel.app",
-    },
-    {
       title: "Club IA Université Laval",
       description:
         "Site pour un club étudiant en intelligence artificielle (toujours en développement, lien à venir, mais le github est public!)",
       image: "/cia_presentation.png",
-      tech: ["React", "TypeScript", "Tailwind CSS"],
+      tech: ["TypeScript", "Tailwind CSS"],
       link: "https://github.com/cia-ulaval/EEG_siteweb",
     },
     {
       title: "Site personnel",
-      description: "Site portfolio pour afficher mes projets et compétences",
+      description: "Mon site portfolio si vous voulez en savoir plus sur moi!",
       image: "portfolio_presentation.png",
-      tech: ["React", "Vite", "TailwindCSS"],
+      tech: ["Typescript", "JavaScript", "CSS", "HTML"],
       link: "https://www.dereckbelanger.me",
+    },
+    {
+      title: "Boutique à Café",
+      description: "Un prototype de site web pour une boutique de café fictive",
+      image: "/cafe_presentation.png",
+      tech: ["TypeScript", "CSS", "JavaScript", "HTML"],
+      link: "https://coffeeshop-website-nine.vercel.app",
     },
     {
       title: "Magasin de Kebab",
       description: "Un prototype de site web pour un magasin de kebab fictif",
       image: "kebab_presentation.png",
-      tech: ["React", "TypeScript", "TailwindCSS"],
+      tech: ["TypeScript", "JavaScript", "CSS", "HTML"],
       link: "https://kebab-website.vercel.app",
+    },
+    {
+      title: "Garage",
+      description: "Un prototype de site web pour un garage fictif",
+      image: "",
+      tech: ["React", "TypeScript", "TailwindCSS"],
+      link: "",
     },
     {
       title: "Et bien d'autres à venir!",
@@ -93,7 +100,7 @@ function App() {
         "Vous pourriez être le prochain projet sur cette liste! Qu'est-ce que vous attendez?",
       image: "autre.jpg",
       tech: [],
-      link: "#",
+      link: () => scrollToSection("contact"),
     },
   ];
 
@@ -114,11 +121,11 @@ function App() {
           <div className="flex items-center space-x-2 group">
             <img
               src="evoweb_logo.png"
-              alt="EvoWeb Logo"
+              alt="Evoweb Logo"
               className="h-24 w-24 text-indigo-600 dark:text-indigo-400 animate-rotate"
             />
             <span className="text-xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 text-transparent bg-clip-text animate-gradient">
-              EvoWeb
+              Evoweb
             </span>
           </div>
           <div className="flex items-center space-x-8">
@@ -169,7 +176,7 @@ function App() {
         onMouseLeave={() => setIsHoveringHero(false)}
       >
         <div
-          className="absolute inset-0 chaos-grid dark:chaos-grid-dark opacity-30"
+          className="absolute inset-0 chaos-grid dark:chaos-grid-dark opacity-70"
           style={{
             transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`,
             transition: "transform 0.1s ease-out",
@@ -178,7 +185,7 @@ function App() {
         <div className="container mx-auto px-6 py-32 relative">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 text-transparent bg-clip-text animate-gradient text-glow">
-              Une idée en tête ? Je m'en occupe !
+              Une idée en tête ?
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
               Je transforme vos idées en sites web modernes et 100%
@@ -353,7 +360,16 @@ function App() {
                     ))}
                   </div>
                   <a
-                    href={project.link}
+                    href={
+                      typeof project.link === "string"
+                        ? project.link
+                        : undefined
+                    }
+                    onClick={
+                      typeof project.link === "function"
+                        ? project.link
+                        : undefined
+                    }
                     className="inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 group"
                   >
                     Voir le Projet
