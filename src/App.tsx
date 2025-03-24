@@ -335,7 +335,7 @@ function App() {
             Mes Projets
           </h2>
           <div className="flex flex-col gap-24 max-w-6xl mx-auto">
-            {projects.map((project, index) => (
+            {projects.slice(0, projects.length - 1).map((project, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
@@ -400,6 +400,45 @@ function App() {
         </div>
       </section>
 
+      {/* Separate Section for Last Project */}
+      <section id="dernier-projet" className="relative py-32">
+        <div className="absolute inset-0 chaos-grid dark:chaos-grid-dark opacity-20" />
+        <div className="container mx-auto px-6 relative">
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            <div className="w-full md:w-1/2">
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl blur opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
+                <div className="relative glass-card rounded-xl overflow-hidden hover-glow">
+                  <img
+                    src={projects[projects.length - 1].image}
+                    alt={projects[projects.length - 1].title}
+                    className="w-full h-auto object-contain transform group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
+              </div>
+            </div>
+            <div className="w-full md:w-1/2 space-y-6">
+              <h3 className="text-2xl font-semibold text-glow">
+                {projects[projects.length - 1].title}
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                {projects[projects.length - 1].description}
+              </p>
+              <button
+                onClick={() => scrollToSection("contact")}
+                className="group glass-card text-indigo-600 dark:text-indigo-400 px-8 py-3 rounded-lg hover-glow"
+              >
+                <span className="flex items-center justify-center">
+                  Allons-y
+                  <Rocket className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section id="contact" className="relative py-32">
         <div className="absolute inset-0 chaos-grid dark:chaos-grid-dark opacity-20" />
@@ -424,8 +463,8 @@ function App() {
                   <div className="flex items-center space-x-4 text-gray-600 dark:text-gray-300">
                     <Coffee className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
                     <span>
-                      Toujours partant pour discuter des projets qui vous
-                      emballent!
+                      Questions, tarifs ou prêts à commencer un projet? C'est
+                      ici que ça se passe!
                     </span>
                   </div>
                 </div>
@@ -449,7 +488,7 @@ function App() {
                 alt="EvoWeb Logo"
                 className="h-24 w-24 text-indigo-600 dark:text-indigo-400 animate-rotate"
               />
-              <span className="text-xl font-bold">EvoWeb</span>
+              <span className="text-xl font-bold">Evoweb</span>
             </div>
             <div className="flex space-x-6">
               <a
