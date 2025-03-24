@@ -1,33 +1,38 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { ExternalLink } from "lucide-react";
 
 const ContactForm = () => {
   const form = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!form.current) return;
 
-    const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
-    const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
-    const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+    const serviceId = import.meta.env.VITE_REACT_APP_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_REACT_APP_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_REACT_APP_EMAILJS_PUBLIC_KEY;
+
+    console.log("Service ID:", serviceId);
+    console.log("Template ID:", templateId);
+    console.log("Public Key:", publicKey);
 
     if (!serviceId || !templateId || !publicKey) {
-      alert("Erreur : Les variables d'environnement ne sont pas définies !");
+      setStatus("error");
+      console.error("Environment variables are not defined!");
       return;
     }
 
-    emailjs
-      .sendForm(serviceId, templateId, form.current, publicKey)
-      .then(() => {
-        alert("Message envoyé avec succès !");
-        form.current?.reset();
-      })
-      .catch(() => {
-        alert("Erreur lors de l'envoi du message.");
-      });
+    try {
+      await emailjs.sendForm(serviceId, templateId, form.current, publicKey);
+      setStatus("success");
+      form.current.reset();
+    } catch (error) {
+      setStatus("error");
+      console.error("Error sending email:", error);
+    }
   };
 
   return (
@@ -68,6 +73,14 @@ const ContactForm = () => {
           <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
         </span>
       </button>
+      {status === "success" && (
+        <p className="text-green-500 mt-4">Message envoyé avec succès !</p>
+      )}
+      {status === "error" && (
+        <p className="text-red-500 mt-4">
+          Une erreur est survenue. Veuillez réessayer.
+        </p>
+      )}
     </form>
   );
 };
