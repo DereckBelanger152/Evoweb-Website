@@ -65,6 +65,7 @@ function App() {
       description:
         "Site pour un club étudiant en intelligence artificielle (toujours en développement, lien à venir, mais le github est public!)",
       image: "/cia_presentation.png",
+      alt: "Site web pour club Intelligence Artificielle de mon univsersité",
       tech: ["TypeScript", "Tailwind CSS"],
       link: "https://github.com/cia-ulaval/EEG_siteweb",
     },
@@ -72,13 +73,15 @@ function App() {
       title: "Site personnel",
       description: "Mon site portfolio si vous voulez en savoir plus sur moi!",
       image: "portfolio_presentation.png",
+      alt: "Site web portfolio personnel",
       tech: ["Typescript", "JavaScript", "CSS", "HTML"],
       link: "https://www.dereckbelanger.me",
     },
     {
-      title: "Boutique à Café",
+      title: "Café",
       description: "Un prototype de site web pour une boutique de café fictive",
       image: "/cafe_presentation.png",
+      alt: "Site web pour un café fictif",
       tech: ["TypeScript", "CSS", "JavaScript", "HTML"],
       link: "https://coffeeshop-website-nine.vercel.app",
     },
@@ -86,6 +89,7 @@ function App() {
       title: "Magasin de Kebab",
       description: "Un prototype de site web pour un magasin de kebab fictif",
       image: "kebab_presentation.png",
+      alt: "Site web pour un magasin de kebab fictif",
       tech: ["TypeScript", "JavaScript", "CSS", "HTML"],
       link: "https://kebab-website.vercel.app",
     },
@@ -93,6 +97,7 @@ function App() {
       title: "Garage",
       description: "Un prototype de site web pour un garage fictif",
       image: "garage.png",
+      alt: "Site web pour un garage fictif",
       tech: ["TypeScript", "JavaScript", "CSS"],
       link: "https://garage-website-alpha.vercel.app",
     },
@@ -129,7 +134,7 @@ function App() {
           <div className="flex items-center space-x-2 group">
             <img
               src="evoweb_logo.png"
-              alt="Evoweb Logo"
+              alt="Logo de ma compagnie de développement web Evoweb"
               className="h-24 w-24 text-indigo-600 dark:text-indigo-400 animate-rotate"
             />
             <span className="text-xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 text-transparent bg-clip-text animate-gradient">
@@ -249,7 +254,7 @@ function App() {
                   <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl blur opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
                   <img
                     src="profil.png"
-                    alt="Dereck"
+                    alt="Photo de profil de Dereck Bélanger le fondateur de Evoweb"
                     className="relative rounded-2xl transform group-hover:scale-[1.02] transition-transform duration-500"
                   />
                 </div>
