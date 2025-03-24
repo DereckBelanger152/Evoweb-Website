@@ -17,6 +17,7 @@ import {
 import { useTheme } from "./ThemeContext";
 import ContactForm from "./ContactForm";
 import { motion } from "framer-motion";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -112,6 +113,7 @@ function App() {
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 dark:text-white transition-colors duration-300">
+      <Analytics />
       {/* Navigation */}
       <nav
         className={`fixed w-full z-50 transition-all duration-500 ${
@@ -199,8 +201,9 @@ function App() {
             className="max-w-4xl mx-auto text-center"
           >
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 text-transparent bg-clip-text animate-gradient text-glow">
-              Une idée en tête ?
+              Une idée en tête ? Créez votre site web personnalisé avec Evoweb
             </h1>
+
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto text-justify">
               Je transforme vos idées en sites web modernes et 100%
               personnalisés vous permettant de vous démarquer de la concurrence.
