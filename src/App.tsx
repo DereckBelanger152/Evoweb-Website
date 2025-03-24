@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { useTheme } from "./ThemeContext";
 import ContactForm from "./ContactForm";
+import { motion } from "framer-motion";
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -117,7 +118,12 @@ function App() {
           isScrolled ? "glass-card shadow-lg py-4" : "bg-transparent py-6"
         }`}
       >
-        <div className="container mx-auto px-6 flex items-center justify-between">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="container mx-auto px-6 flex items-center justify-between"
+        >
           <div className="flex items-center space-x-2 group">
             <img
               src="evoweb_logo.png"
@@ -165,7 +171,7 @@ function App() {
               )}
             </button>
           </div>
-        </div>
+        </motion.div>
       </nav>
 
       {/* Hero Section */}
@@ -175,7 +181,10 @@ function App() {
         onMouseEnter={() => setIsHoveringHero(true)}
         onMouseLeave={() => setIsHoveringHero(false)}
       >
-        <div
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
           className="absolute inset-0 chaos-grid dark:chaos-grid-dark opacity-70"
           style={{
             transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`,
@@ -183,7 +192,12 @@ function App() {
           }}
         />
         <div className="container mx-auto px-6 py-32 relative">
-          <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto text-center"
+          >
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 text-transparent bg-clip-text animate-gradient text-glow">
               Une idée en tête ?
             </h1>
@@ -211,7 +225,7 @@ function App() {
                 </span>
               </button>
             </div>
-          </div>
+          </motion.div>
         </div>
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
           <ChevronDown
@@ -322,8 +336,12 @@ function App() {
           </h2>
           <div className="flex flex-col gap-24 max-w-6xl mx-auto">
             {projects.map((project, index) => (
-              <div
+              <motion.div
                 key={index}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
                 className="flex flex-col md:flex-row items-center gap-12"
                 style={{
                   flexDirection: index % 2 === 0 ? "row" : "row-reverse",
@@ -376,7 +394,7 @@ function App() {
                     <ExternalLink className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                   </a>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -394,7 +412,7 @@ function App() {
                 </h2>
                 <p className="text-xl text-gray-600 dark:text-gray-300">
                   Prêt à démarrer votre prochain projet ? Contactez-moi pour
-                  donner vie à vos idées !
+                  donner vie à vos idées!
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-center space-x-4 text-gray-600 dark:text-gray-300">
