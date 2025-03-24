@@ -201,7 +201,7 @@ function App() {
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 text-transparent bg-clip-text animate-gradient text-glow">
               Une idée en tête ?
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto text-justify">
               Je transforme vos idées en sites web modernes et 100%
               personnalisés vous permettant de vous démarquer de la concurrence.
             </p>
@@ -241,7 +241,7 @@ function App() {
         <div className="container mx-auto px-6 relative">
           <div className="max-w-4xl mx-auto">
             <div className="flex flex-col md:flex-row items-center gap-12">
-              <div className="w-full md:w-1/2">
+              <div className="w-full md:w-1/2 mb-6 md:mb-0 md:pr-8">
                 <div className="relative group">
                   <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl blur opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
                   <img
@@ -258,7 +258,7 @@ function App() {
                     Étudiant Passionné
                   </h3>
                 </div>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-gray-600 dark:text-gray-300 text-justify">
                   Bonjour! Je suis Dereck, étudiant en informatique à
                   l'Université Laval et développeur web passionné. Je combine
                   créativité et expertise technique pour créer des expériences
@@ -266,13 +266,13 @@ function App() {
                 </p>
                 <div className="flex items-center space-x-3">
                   <Coffee className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <p className="text-gray-600 dark:text-gray-300 text-justify">
                     Amateur de nouveaux défis et d'apprentissage continu
                   </p>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Heart className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <p className="text-gray-600 dark:text-gray-300 text-justify">
                     Spécialisé dans le développement React et Tailwind CSS
                   </p>
                 </div>
@@ -318,7 +318,7 @@ function App() {
                   {service.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-4">{service.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-gray-600 dark:text-gray-300 text-justify">
                   {service.description}
                 </p>
               </div>
@@ -327,7 +327,6 @@ function App() {
         </div>
       </section>
 
-      {/* Projects Section */}
       <section id="projets" className="relative py-32">
         <div className="absolute inset-0 chaos-grid dark:chaos-grid-dark opacity-20" />
         <div className="container mx-auto px-6 relative">
@@ -342,36 +341,35 @@ function App() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="flex flex-col md:flex-row items-center gap-12"
-                style={{
-                  flexDirection: index % 2 === 0 ? "row" : "row-reverse",
-                }}
+                className={`flex flex-col ${
+                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                }`}
               >
-                <div className="w-full md:w-1/2">
-                  <div className="relative group">
+                <div className="w-full md:w-1/2 mb-6 md:mb-0 md:pr-8">
+                  <div className="relative group aspect-video">
                     <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl blur opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
-                    <div className="relative glass-card rounded-xl overflow-hidden hover-glow">
+                    <div className="relative glass-card rounded-xl overflow-hidden hover-glow h-full">
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-auto object-contain transform group-hover:scale-110 transition-transform duration-700"
+                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
                   </div>
                 </div>
-                <div className="w-full md:w-1/2 space-y-6">
-                  <h3 className="text-2xl font-semibold text-glow">
+                <div className="w-full md:w-1/2 space-y-4 md:space-y-6 text-center md:text-left">
+                  <h3 className="text-xl md:text-2xl font-semibold text-glow">
                     {project.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <p className="text-base md:text-base text-gray-600 dark:text-gray-300 text-justify">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                     {project.tech.map((tech, i) => (
                       <span
                         key={i}
-                        className="px-3 py-1 glass-card text-indigo-600 dark:text-indigo-400 rounded-full text-sm hover-glow"
+                        className="px-2 py-1 md:px-3 md:py-1 glass-card text-indigo-600 dark:text-indigo-400 rounded-full text-xs md:text-sm hover-glow"
                       >
                         {tech}
                       </span>
@@ -400,12 +398,11 @@ function App() {
         </div>
       </section>
 
-      {/* Separate Section for Last Project */}
       <section id="dernier-projet" className="relative py-32">
         <div className="absolute inset-0 chaos-grid dark:chaos-grid-dark opacity-20" />
         <div className="container mx-auto px-6 relative">
           <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="w-full md:w-1/2">
+            <div className="w-full md:w-1/2 mb-6 md:mb-0 md:pr-8">
               <div className="relative group">
                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl blur opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
                 <div className="relative glass-card rounded-xl overflow-hidden hover-glow">
@@ -422,7 +419,7 @@ function App() {
               <h3 className="text-2xl font-semibold text-glow">
                 {projects[projects.length - 1].title}
               </h3>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-gray-600 dark:text-gray-300 text-justify">
                 {projects[projects.length - 1].description}
               </p>
               <button
@@ -449,22 +446,22 @@ function App() {
                 <h2 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 text-transparent bg-clip-text text-glow">
                   Travaillons Ensemble
                 </h2>
-                <p className="text-xl text-gray-600 dark:text-gray-300">
+                <p className="text-xl text-gray-600 dark:text-gray-300 text-justify">
                   Prêt à démarrer votre prochain projet ? Contactez-moi pour
                   donner vie à vos idées!
                 </p>
                 <div className="space-y-4">
-                  <div className="flex items-center space-x-4 text-gray-600 dark:text-gray-300">
+                  <div className="flex items-center space-x-4 text-gray-600 dark:text-gray-300 text-justify">
                     <Globe className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
                     <span>
-                      Disponible pour des projets dans le monde entier
+                      Des questions sur les tarfis, fonctionnements ou
+                      disponibilités?
                     </span>
                   </div>
-                  <div className="flex items-center space-x-4 text-gray-600 dark:text-gray-300">
+                  <div className="flex items-center space-x-4 text-gray-600 dark:text-gray-300 text-justify">
                     <Coffee className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
                     <span>
-                      Questions, tarifs ou prêts à commencer un projet? C'est
-                      ici que ça se passe!
+                      Prêt à commencer un projet? C'est ici que ça se passe!
                     </span>
                   </div>
                 </div>
