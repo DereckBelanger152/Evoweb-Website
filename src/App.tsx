@@ -90,9 +90,9 @@ function App() {
     {
       title: "Garage",
       description: "Un prototype de site web pour un garage fictif",
-      image: "",
-      tech: ["React", "TypeScript", "TailwindCSS"],
-      link: "",
+      image: "garage.png",
+      tech: ["TypeScript", "JavaScript", "CSS"],
+      link: "https://garage-website-alpha.vercel.app",
     },
     {
       title: "Et bien d'autres à venir!",
@@ -393,7 +393,7 @@ function App() {
                   Travaillons Ensemble
                 </h2>
                 <p className="text-xl text-gray-600 dark:text-gray-300">
-                  Prêt à démarrer votre prochain projet ? Contactez-nous pour
+                  Prêt à démarrer votre prochain projet ? Contactez-moi pour
                   donner vie à vos idées !
                 </p>
                 <div className="space-y-4">
