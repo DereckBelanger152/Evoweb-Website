@@ -231,7 +231,7 @@ function App() {
                 <div className="relative group">
                   <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl blur opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
                   <img
-                    src="profil.HEIC"
+                    src="profil.png"
                     alt="Dereck"
                     className="relative rounded-2xl transform group-hover:scale-[1.02] transition-transform duration-500"
                   />
@@ -246,7 +246,7 @@ function App() {
                 </div>
                 <p className="text-gray-600 dark:text-gray-300">
                   Bonjour! Je suis Dereck, étudiant en informatique à
-                  l'université Laval et développeur web passionné. Je combine
+                  l'Université Laval et développeur web passionné. Je combine
                   créativité et expertise technique pour créer des expériences
                   web qui satisfont vos besoins
                 </p>
