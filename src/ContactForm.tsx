@@ -15,6 +15,8 @@ const ContactForm = () => {
     const templateId = import.meta.env.VITE_REACT_APP_EMAILJS_TEMPLATE_ID;
     const publicKey = import.meta.env.VITE_REACT_APP_EMAILJS_PUBLIC_KEY;
 
+    console.log("Environment Variables:", { serviceId, templateId, publicKey }); // Debugging log
+
     if (!serviceId || !templateId || !publicKey) {
       setStatus("error");
       console.error("Environment variables are not defined!");
