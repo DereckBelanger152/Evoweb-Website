@@ -12,17 +12,40 @@ const ContactForm = () => {
     if (!form.current) return;
 
     const serviceId = import.meta.env.VITE_REACT_APP_EMAILJS_SERVICE_ID;
-    const templateId = import.meta.env.VITE_REACT_APP_EMAILJS_TEMPLATE_ID;
+    const templateIdForMessage = import.meta.env
+      .VITE_REACT_APP_EMAILJS_TEMPLATE_ID_FOR_MESSAGE;
+    const templateIdForReply = import.meta.env
+      .VITE_REACT_APP_EMAILJS_TEMPLATE_ID_FOR_REPLY;
     const publicKey = import.meta.env.VITE_REACT_APP_EMAILJS_PUBLIC_KEY;
 
-    if (!serviceId || !templateId || !publicKey) {
+    if (
+      !serviceId ||
+      !templateIdForMessage ||
+      !templateIdForReply ||
+      !publicKey
+    ) {
       setStatus("error");
       console.error("Environment variables are not defined!");
       return;
     }
 
     try {
-      await emailjs.sendForm(serviceId, templateId, form.current, publicKey);
+      // Send the form message to your email (Template for receiving the message)
+      await emailjs.sendForm(
+        serviceId,
+        templateIdForMessage,
+        form.current,
+        publicKey
+      );
+
+      // Send the auto-reply to the client (Template for auto-reply)
+      await emailjs.sendForm(
+        serviceId,
+        templateIdForReply,
+        form.current,
+        publicKey
+      );
+
       setStatus("success");
       form.current.reset();
     } catch (error) {
