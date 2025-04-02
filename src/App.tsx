@@ -263,14 +263,14 @@ function App() {
                 <div className="flex items-center space-x-3">
                   <GraduationCap className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
                   <h3 className="text-2xl font-semibold text-glow">
-                    Étudiant Passionné
+                    Fondateur d'Evoweb
                   </h3>
                 </div>
                 <p className="text-gray-600 dark:text-gray-300 text-justify">
                   Bonjour! Je suis Dereck, étudiant en informatique à
                   l'Université Laval et développeur web passionné. Je combine
                   créativité et expertise technique pour créer des expériences
-                  web qui satisfont vos besoins
+                  web qui satisfont vos besoins. C'est moi s'occuperai de vous!
                 </p>
                 <div className="flex items-center space-x-3">
                   <Coffee className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
