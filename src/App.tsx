@@ -115,21 +115,22 @@ function App() {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: "smooth" });
   };
-
   return (
     <div className="min-h-screen overflow-x-hidden bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 dark:text-white transition-colors duration-300">
       <Analytics />
       {/* Navigation */}
       <nav
         className={`fixed w-full z-50 transition-all duration-500 ${
-          isScrolled ? "glass-card shadow-lg py-4" : "bg-transparent py-6"
+          isScrolled
+            ? "glass-card shadow-lg py-4"
+            : "bg-transparent py-4 sm:py-6"
         }`}
       >
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="container mx-auto px-6 flex items-center justify-between"
+          className="container mx-auto px-4 sm:px-6 flex items-center justify-between"
         >
           <div className="flex items-center space-x-2 group">
             <img
@@ -184,7 +185,7 @@ function App() {
       {/* Hero Section */}
       <section
         id="accueil"
-        className="min-h-screen flex items-center justify-center relative overflow-hidden"
+        className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-4 sm:px-6"
         onMouseEnter={() => setIsHoveringHero(true)}
         onMouseLeave={() => setIsHoveringHero(false)}
       >
@@ -198,18 +199,18 @@ function App() {
             transition: "transform 0.1s ease-out",
           }}
         />
-        <div className="container mx-auto px-6 py-32 relative">
+        <div className="container mx-auto px-4 sm:px-6 py-16 sm:py-32 relative">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 text-transparent bg-clip-text animate-gradient text-glow">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 text-transparent bg-clip-text animate-gradient text-glow">
               Une idée en tête ? Créez votre site web personnalisé avec Evoweb
             </h1>
 
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto text-justify">
+            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 mb-8 sm:mb-12 max-w-2xl mx-auto text-justify">
               Je transforme vos idées en sites web modernes et 100%
               personnalisés vous permettant de vous démarquer de la concurrence.
             </p>
@@ -244,11 +245,14 @@ function App() {
       </section>
 
       {/* À Propos Section */}
-      <section id="apropos" className="relative py-32 overflow-hidden">
+      <section
+        id="apropos"
+        className="relative py-16 sm:py-32 overflow-hidden px-4 sm:px-6"
+      >
         <div className="absolute inset-0 chaos-grid dark:chaos-grid-dark opacity-20 rotate-45" />
-        <div className="container mx-auto px-6 relative">
+        <div className="container mx-auto relative">
           <div className="max-w-4xl mx-auto">
-            <div className="flex flex-col md:flex-row items-center gap-12">
+            <div className="flex flex-col md:flex-row items-center gap-8 sm:gap-12">
               <div className="w-full md:w-1/2 mb-6 md:mb-0 md:pr-8">
                 <div className="relative group">
                   <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl blur opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
@@ -259,7 +263,7 @@ function App() {
                   />
                 </div>
               </div>
-              <div className="w-full md:w-1/2 space-y-6">
+              <div className="w-full md:w-1/2 space-y-4 sm:space-y-6">
                 <div className="flex items-center space-x-3">
                   <GraduationCap className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
                   <h3 className="text-2xl font-semibold text-glow">
@@ -291,13 +295,13 @@ function App() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="relative py-32">
+      <section id="services" className="relative py-16 sm:py-32 px-4 sm:px-6">
         <div className="absolute inset-0 chaos-grid dark:chaos-grid-dark opacity-20 -rotate-45" />
-        <div className="container mx-auto px-6 relative">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 text-transparent bg-clip-text text-glow">
+        <div className="container mx-auto relative">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 text-transparent bg-clip-text text-glow">
             Mes Services
           </h2>
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
               {
                 icon: <Laptop className="h-8 w-8" />,
@@ -335,13 +339,13 @@ function App() {
         </div>
       </section>
 
-      <section id="projets" className="relative py-32">
+      <section id="projets" className="relative py-16 sm:py-32 px-4 sm:px-6">
         <div className="absolute inset-0 chaos-grid dark:chaos-grid-dark opacity-20" />
-        <div className="container mx-auto px-6 relative">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 text-transparent bg-clip-text text-glow">
+        <div className="container mx-auto relative">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 text-transparent bg-clip-text text-glow">
             Mes Projets
           </h2>
-          <div className="flex flex-col gap-24 max-w-6xl mx-auto">
+          <div className="flex flex-col gap-16 sm:gap-24 max-w-6xl mx-auto">
             {projects.slice(0, projects.length - 1).map((project, index) => (
               <motion.div
                 key={index}
@@ -445,12 +449,12 @@ function App() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="relative py-32">
+      <section id="contact" className="relative py-16 sm:py-32 px-4 sm:px-6">
         <div className="absolute inset-0 chaos-grid dark:chaos-grid-dark opacity-20" />
-        <div className="container mx-auto px-6 relative">
-          <div className="max-w-4xl mx-auto glass-card rounded-2xl p-12 hover-glow">
-            <div className="flex flex-col md:flex-row gap-12">
-              <div className="w-full md:w-1/2 space-y-8">
+        <div className="container mx-auto relative">
+          <div className="max-w-4xl mx-auto glass-card rounded-2xl p-8 sm:p-12 hover-glow">
+            <div className="flex flex-col md:flex-row gap-8 sm:gap-12">
+              <div className="w-full md:w-1/2 space-y-6 sm:space-y-8">
                 <h2 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 text-transparent bg-clip-text text-glow">
                   Travaillons Ensemble
                 </h2>
@@ -481,11 +485,10 @@ function App() {
           </div>
         </div>
       </section>
-
       {/* Footer */}
-      <footer className="relative bg-gray-900 dark:bg-gray-950 text-white py-12">
+      <footer className="relative bg-gray-900 dark:bg-gray-950 text-white py-8 sm:py-12 px-4 sm:px-6">
         <div className="absolute inset-0 chaos-grid dark:chaos-grid-dark opacity-10" />
-        <div className="container mx-auto px-6 relative">
+        <div className="container mx-auto relative">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-2 group">
               <img
@@ -510,7 +513,7 @@ function App() {
               </a>
             </div>
           </div>
-          <div className="mt-8 text-center text-gray-400">
+          <div className="mt-6 sm:mt-8 text-center text-gray-400">
             © {new Date().getFullYear()} Dereck Bélanger - Tous droits réservés.
           </div>
         </div>
