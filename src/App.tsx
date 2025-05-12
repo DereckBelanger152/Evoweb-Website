@@ -13,6 +13,7 @@ import {
   Coffee,
   Heart,
   Linkedin,
+  X,
 } from "lucide-react";
 import { useTheme } from "./ThemeContext";
 import ContactForm from "./ContactForm";
@@ -25,6 +26,7 @@ function App() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHoveringHero, setIsHoveringHero] = useState(false);
   const { isDark, toggleTheme } = useTheme();
+  const [showPopup, setShowPopup] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -86,12 +88,12 @@ function App() {
       link: "https://coffeeshop-website-nine.vercel.app",
     },
     {
-      title: "Magasin de Kebab",
-      description: "Un prototype de site web pour un magasin de kebab fictif",
-      image: "kebab_presentation.png",
+      title: "Lavage à pression provincial",
+      description: "Compagnie québecoise de service de lavage à pression",
+      image: "lavagepression.png",
       alt: "Site web pour un magasin de kebab fictif",
       tech: ["TypeScript", "JavaScript", "CSS", "HTML"],
-      link: "https://kebab-website.vercel.app",
+      link: "https://www.lavageapressionprovincial.com",
     },
     {
       title: "Garage",
@@ -117,6 +119,29 @@ function App() {
   };
   return (
     <div className="min-h-screen overflow-x-hidden bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 dark:text-white transition-colors duration-300">
+      {/* Popup */}
+      {showPopup && (
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: 50 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+          className="fixed top-12 right-4 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 text-white rounded-md shadow-lg p-4 flex flex-col items-start space-y-2 z-[1000] max-w-xs"
+        >
+          <p className="text-sm sm:text-base">
+            Nouveauté! Je vous aide maintenant à créer votre propre site web
+            transactionnel. Contactez-moi pour plus d'informations les premiers
+            clients auront un tarif réduit pour célébrer!
+          </p>
+          <button
+            onClick={() => setShowPopup(false)}
+            className="self-end p-1 rounded-full hover:bg-white/20 transition-colors"
+            aria-label="Close popup"
+          >
+            <X className="h-4 w-4" />
+          </button>
+        </motion.div>
+      )}
       <Analytics />
       {/* Navigation */}
       <nav
