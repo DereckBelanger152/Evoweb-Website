@@ -64,12 +64,11 @@ function App() {
   const projects = [
     {
       title: "Club IA Université Laval",
-      description:
-        "Site pour un club étudiant en intelligence artificielle (toujours en développement, lien à venir, mais le github est public!)",
+      description: "Site pour un club étudiant en intelligence artificielle",
       image: "/cia_presentation.png",
       alt: "Site web pour club Intelligence Artificielle de mon univsersité",
       tech: ["TypeScript", "Tailwind CSS"],
-      link: "https://github.com/cia-ulaval/EEG_siteweb",
+      link: "https://cia.ift.ulaval.ca",
     },
     {
       title: "Site personnel",
@@ -80,20 +79,20 @@ function App() {
       link: "https://www.dereckbelanger.me",
     },
     {
-      title: "Café",
-      description: "Un prototype de site web pour une boutique de café fictive",
-      image: "/cafe_presentation.png",
-      alt: "Site web pour un café fictif",
-      tech: ["TypeScript", "CSS", "JavaScript", "HTML"],
-      link: "https://coffeeshop-website-nine.vercel.app",
-    },
-    {
       title: "Lavage à pression provincial",
       description: "Compagnie québecoise de service de lavage à pression",
       image: "lavagepression.png",
       alt: "Site web pour un magasin de kebab fictif",
       tech: ["TypeScript", "JavaScript", "CSS", "HTML"],
       link: "https://www.lavageapressionprovincial.com",
+    },
+    {
+      title: "Café",
+      description: "Un prototype de site web pour une boutique de café fictive",
+      image: "/cafe_presentation.png",
+      alt: "Site web pour un café fictif",
+      tech: ["TypeScript", "CSS", "JavaScript", "HTML"],
+      link: "https://coffeeshop-website-nine.vercel.app",
     },
     {
       title: "Garage",
@@ -368,7 +367,7 @@ function App() {
         <div className="absolute inset-0 chaos-grid dark:chaos-grid-dark opacity-20" />
         <div className="container mx-auto relative">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 text-transparent bg-clip-text text-glow">
-            Mes Projets
+            Quelques-uns de mes projets
           </h2>
           <div className="flex flex-col gap-16 sm:gap-24 max-w-6xl mx-auto">
             {projects.slice(0, projects.length - 1).map((project, index) => (
